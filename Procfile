@@ -1,1 +1,1 @@
-web: python3 -m http.server
+web: vendor/bin/heroku-php-nginx

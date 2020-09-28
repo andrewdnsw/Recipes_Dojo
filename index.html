@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Веб-гид по кулинарным рецептам">
+    <title>Веб-гид по кулинарным рецептам</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <table id="recipes"></table>
+    <script>
+        var recipesTable = document.getElementById('recipes'),
+            requestURL = 'https://raw.githubusercontent.com/comp-vis-proj/recipes/master/recipes.json',
+            request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.onload = function(e) {
+            if (request.readyState === 4) {
+                if (request.status === 200) {
+                    console.log(request.response);
+                    var dataTable = JSON.parse(request.responseText);
+                    getTableInfo(dataTable);
+                } else {
+                    console.error(request.statusText);
+                }
+            }
+        };
+        request.onerror = function(e) {
+            console.error(request.statusText);
+        };
+        request.send();
+
+        function getTableInfo(data) {
+            let headerTr = document.createElement('tr');
+            headerTr.innerHTML = '<th>Название</th><th>Стоимость</th><th>Время приготовления</th><th>Кухня</th><th>Ингредиенты</th><th>Этапы приготовления</th>';
+            recipesTable.appendChild(headerTr);
+            data.recipes.forEach(function(elem) {
+			ing_s = st_s = "";	
+				for (let ing in elem.ingredients)
+					ing_s += elem.ingredients[ing] + "<br/>";
+				for (let st in elem.stages)
+					st_s += elem.stages[st] + "<br/>";
+				let tr = document.createElement('tr');
+                tr.innerHTML = `<td>${elem.name}</td><td>${elem.cost}</td><td>${elem.time}</td><td>${elem.cuisine}</td>
+				<td>${ing_s}</td><td>${st_s}</td>`;
+                recipes.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+
+</html>

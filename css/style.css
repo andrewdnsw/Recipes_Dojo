@@ -42,7 +42,7 @@ tr:hover {
 *{padding: 0; margin: 0; box-sizing: border-box;}
 body{height: 900px;}
 header {
-	background: url('https://i.artfile.me/wallpaper/03-09-2017/1920x1080/eda-raznoe-lavash-raznosti-vkusnyashki-m-1221917.jpg');
+	background: url('../food-1.jpg');
 	text-align: center;
 	width: 100%;
 	height: auto;

@@ -1285,9 +1285,9 @@ $.fn.light_youtube = function(size, oval, align) {
             $anchor = $('<a/>')
             .addClass('youtube_anchor')
             .attr('id', vid)
-            .attr('href', 'http://www.youtube.com/embed/'+vid+'?rel=1&amp;wmode=transparent')
+            .attr('href', 'https://www.youtube.com/embed/'+vid+'?rel=1&amp;wmode=transparent')
             .attr('title', 'Видео с Google YouTube')
-            .html('<img class="youtube_image_n" src="http://i.ytimg.com/vi/'+vid+'/mqdefault.jpg" alt="" style="margin:0;vertical-align:middle;height:'+size+'px;width:'+size+'px;border-radius:'+img_radius+'px;'+'border:0;"/>');
+            .html('<img class="youtube_image_n" src="https://i.ytimg.com/vi/'+vid+'/mqdefault.jpg" alt="" style="margin:0;vertical-align:middle;height:'+size+'px;width:'+size+'px;border-radius:'+img_radius+'px;'+'border:0;"/>');
             $div_1.append($anchor);
 			if(align == 'right') $div_1.css('margin-left','7px'); 
             else $div_1.css('margin-right','7px');

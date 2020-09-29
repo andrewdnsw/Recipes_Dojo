@@ -1319,7 +1319,7 @@ $.fn.light_youtube = function(size, oval, align) {
 // Внедрим в див одно видео с Youtuba без позиционирования и выравнивания
 $.fn.one_youtube = function(siz, oval, bord_weight, bord_color, vid, _img) {
     var size = (siz == undefined || siz == null) ? 160 : siz;
-	var vid_img = (_img == undefined || _img == null) ? 'http://i.ytimg.com/vi/'+vid+'/mqdefault.jpg' : _img;
+	var vid_img = (_img == undefined || _img == null) ? 'https://i.ytimg.com/vi/'+vid+'/mqdefault.jpg' : _img;
     var radius;
     if(oval == 'circle') radius = size/2;
     else if(oval == 'oval') radius = size/3;
@@ -1335,7 +1335,7 @@ $.fn.one_youtube = function(siz, oval, bord_weight, bord_color, vid, _img) {
 			.css({'display':'inline-block', 'border':bord_weight+' solid '+bord_color, 'border-radius':radius, '-webkit-border-radius':radius, '-moz-border-radius':radius, 'box-shadow':'4px 5px 3px gray' });
         $anchor = $('<a/>')
             .addClass('youtube_anchor')
-            .attr('href', 'http://www.youtube.com/embed/'+vid+'?rel=1&amp;wmode=transparent')
+            .attr('href', 'https://www.youtube.com/embed/'+vid+'?rel=1&amp;wmode=transparent')
             .attr('title', 'Видео с Google YouTube')
             .html('<img class="youtube_image_n" src="'+vid_img+'" alt="" style="vertical-align:middle;height:'+size+'px;width:'+size+'px;border-radius:'+img_radius+'px;'+'border:0;"/>');
         $div_1.append($anchor);

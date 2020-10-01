@@ -42,7 +42,7 @@ tr:hover {
 *{padding: 0; margin: 0; box-sizing: border-box;}
 body{height: 900px;}
 header {
-	background: url('/static/food-1.jpg');
+	background: url('../static/food-1.jpg');
 	text-align: center;
 	width: 100%;
 	height: auto;

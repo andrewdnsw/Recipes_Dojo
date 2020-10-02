@@ -20,7 +20,7 @@ a:active, a:focus, img { outline: 0; }
 }
 
 .lbLoading {
-	background: #fff url(images/loading.gif) no-repeat center;
+	background: #fff url(http://unicorn.kl.com.ua/search_student/css/images/loading.gif) no-repeat center;
 }
 
 #lbImage {

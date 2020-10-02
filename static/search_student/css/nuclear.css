@@ -1,0 +1,836 @@
+* { margin:0px;padding:0px;font-size:100%;outline:0;}
+html, body { height:100%; overflow:hidden; }
+p  { line-height: 1.3; }
+#body   { background-image:url(http://vt.obninsk.ru/common/background_body.gif);background-attachment:fixed;background-repeat:repeat;
+          font-weight:bold;font-family:verdana,arial,sans-serif;min-width:640px; }
+.tit { height:100%; border:thin solid transparent; }
+#content { position:absolute;top:0px;bottom:43px;width:1000px;margin-left:-500px;left:50%; }
+
+#header_wrap { position:absolute;left:0px;top:0px;width:1000px;height:80px;border-top-right-radius:0.5em; border-top-left-radius:0.5em;box-shadow:4px 5px 2px gray;
+               background-image:url(http://vt.obninsk.ru/common/footer_green_background.png);background-repeat:repeat-x;}
+#header { color:beige;font-size:16px;padding:0.5em;line-height:24px;vertical-align:middle;overflow:hidden;cursor:pointer; }	
+#control_wrap { height:40px;color:beige;font-size:13px;border:2px solid lightslategray;box-shadow:4px 5px 2px gray;overflow:hidden;
+				background-image:url(http://vt.obninsk.ru/common/bg_dojo_tree_control.png);border-bottom-right-radius:0.5em; border-bottom-left-radius:0.5em; }
+.align_left { float:left;margin-left:21px; }
+.align_right { float:right;margin-right:21px; }
+.control_top { margin-top:3px; }
+
+.claro .dijitDialog { border:2px solid lightslategray;box-shadow:4px 5px 2px gray;border-radius:0.5em; }
+.claro .dijitComboButton .dijitButtonNode { background-image:url(http://vt.obninsk.ru/common/commonHighlight.png); }
+.claro .dijitDialogTitleBar { background-color:#99cccc;font-size:13px; border:0; margin-top:-2px; }
+
+.special_field { background:url("http://vt.obninsk.ru/common/search.png") no-repeat 4px 2px;font-size:13px;background-color:#fcfcf8;
+				padding-left:28px;min-width:320px;height:25px;margin-top:6px;font-weight:bold;font-family:verdana,arial,sans-serif; 
+				border:1px solid silver; border-radius:4px; box-shadow:3px 3px 3px gray; }
+.special_field:hover { background-color:white; }	
+.selector_field { width:600px;text-align:left;overflow:hidden;cursor:pointer; }
+
+.special_field_clone { background:url("http://vt.obninsk.ru/common/search.png") no-repeat 4px 2px;font-size:13px;background-color:#fcfcf8;
+				padding-left:28px;min-width:600px;height:25px;font-weight:bold;font-family:verdana,arial,sans-serif; 
+				border:1px solid silver; border-radius:4px; box-shadow:3px 3px 3px gray;display:inline-block; }
+.special_field_clone:hover { background-color:white; }
+#search_menu_button_clone { display:inline-block; }
+#the_clone { margin-left:84px; }
+.search_option_top { font-size:13px;color:lightslategray;width:200px;display:inline-block;cursor:pointer; }
+.search_option_bottom { font-size:13px;color:lightslategray;width:200px;display:inline-block;cursor:pointer;margin-top:4px; }
+.the_line { min-height:12px;margin:12px 0px 0px 0px; }
+		
+#background { position:absolute;left:0px;top:76px;bottom:0px;width:998px;box-shadow:4px 5px 2px gray;overflow:hidden;border-left:2px solid lightslategray;
+             background: #cccccc url(http://vt.obninsk.ru/common/bg_ksst_bottom.png) fixed top left no-repeat;background-size: 100% 100%;}
+#make_fine 	{ position:absolute;top:10px;bottom:0px;left:12px;right:12px;font-size:13px; }
+#frame		{ position:absolute;top:0px;bottom:0px;left:-12px;width:998px;border:0px;overflow:visible;z-index:-1; }	
+	
+.invisible { height:100%;width:100%;border:0px;z-index:-1; }
+#iframe { height:100%;width:100%;border:0px;overflow:auto; }
+.iframe { height:100%;width:100%;border:0px;overflow:auto; }
+.preloader { border:0px;margin-top:8px; }
+#preloader_start { border:0px;margin-top:50px;display:block; }
+
+#search { display:none;margin-left:3px;}
+#request { display:none;margin-right:-2px; }
+.semantic_logo { display:inline-block;color:slategray;font-family:"Monotype Corsiva";font-style:italic;font-size:26px;}
+.semantic_logo:hover { color:firebrick; }
+#logo { display:inline-block;background-image: url("../css/semantic_logo.png");background-position: 0 5px;
+    height:40px;overflow:hidden;width:440px;background-repeat:no-repeat;background-color:transparent;cursor:pointer; }
+#logo:hover { background-image: url("../css/semantic_logo.png");background-position: 0 -29px; }
+	 
+.fine { position:absolute;left:0px;top:0px;right:0px;bottom:0px;height:100%;width:100%;z-index:-1; }
+.manual { font-size:20px; font-weight:normal; color:slategray; padding:2px 5px;}
+.manual_head { font-size:24px; font-weight:bolder; text-align:center; color:darkgray; padding:8px 5px 5px 5px; }
+	
+#close_btn { position:absolute;border:0px;top:93px;right:20px;cursor:pointer;z-index:-1; }
+#coming_search { position:absolute;border:0px;top:92px;right:60px;cursor:pointer;z-index:-1; }
+#search_result { z-index: -1;}
+#fetch_in_docs { z-index: -1; }
+#fetch_in_lib { z-index: -1; }
+#searchStack { padding-top:3px; }
+
+#docsStack { position:absolute;left:0px;top:41px;right:0px;bottom:0px;height:100%;width:100%;border:0; }
+#libStack { position:absolute;left:0px;top:41px;right:0px;bottom:0px;height:100%;width:100%;border:0; }
+#semanticStack { position:absolute;left:0px;margin-top:2px;right:0px;bottom:0px;height:100%;width:100%;border:0; }
+#dbpedia { opacity:0; overflow-x:auto; }
+#annotation { opacity:0; overflow-x:auto; }
+
+.web_buttons { float:left; margin:8px 3px; vertical-align:middle; font-size:13px; background-color:#f8fae8; box-shadow:3px 3px 2px grey; padding:4px 10px; border:thin solid silver; border-radius:4px; cursor:pointer; }
+.web_tabs { margin-left:5px; }
+.my_snippet { margin:0px 0px 0px 5px; padding:.5em 0; border-bottom: 1px solid #ebebeb; }
+.my_link { color:#0000cc;text-decoration:underline;cursor:pointer; }
+.an_link { color:#0000cc;text-decoration:underline;font-weight:bolder;cursor:pointer;display:inline-block;margin-top:10px; }
+.thingname { color:#006600;font-weight:bolder;margin-top:5px;text-indent:21px; }
+.hostname { color:#006600; }
+.an_result { color:#006600; display:inline-block;text-decoration:none;font-weight:bolder; }
+.info { color:#727272;display:inline-block; }
+
+.news_header { position:relative;color:slategray;left:100px;top:10px;line-height:32px;vertical-align:middle; }
+.li_news { position:relative;top:10px;color:slategray;margin-bottom:5px;margin-left:20px;}
+.news { position:relative;color:slategray;margin-bottom:5px; }
+a.news:link    { color:slategray; text-decoration:none;padding:0;}
+a.news:visited { color:slategray; text-decoration:none;padding:0;}
+a.news:hover   { color:firebrick; text-decoration:none;padding:0;}
+a.news:active  { color:red; text-decoration:none;padding:0;}
+
+#progr_admin { opacity:0; }
+#network_admin { opacity:0; }
+#micro_admin { opacity:0; }
+#common_admin { opacity:0; }
+#lib_admin { opacity:0; }
+
+.radio_button { font-size:0.8em;float:left;padding-top:0.8em;padding-left:1.5em; }
+.radio_button:link { color:black;text-decoration:none; }
+.radio_button:visited { color:darkslategray ;text-decoration:none;}
+.radio_button:hover   { color:firebrick;text-decoration:none;}
+.radio_button:active  { color:red;text-decoration:none;}
+
+.copyright {font-size:10px;color:beige;font-weight:normal;}
+.float_left { position:relative;font-size:0.8em;float:left;padding:0.8em;padding-left:1em;padding-right:0.3em; }
+
+.alert_close_btn { margin:0;padding:0;height:20px;width:20px;border:none;outline:none;position:absolute;right:4px;top:3px;background:url(../lodlive/img/sprite-balls.png) no-repeat;background-position: 0px -600px; }
+.alert_close_btn:hover {border:none;outline:none;}
+.alert_close_btn:adctive {border:none;outline:none;}
+.alert_close_btn:visited {border:none;outline:none;}
+.alert_mess  { top:-400px;position:absolute;width:300px;background-color:#cc0000;border:thin solid beige;border-radius:0.5em;outline:none;
+                padding:15px;box-shadow:4px 5px 2px grey;z-index:999;color:beige;font-size:14px;cursor:pointer; }
+.welcome_mess  { top:-400px;opacity:0;position:absolute;width:300px;background-color:#2b606b;border:thin solid beige;border-radius:0.5em;
+                padding:15px;box-shadow:4px 5px 2px grey;z-index:999;color:beige;font-size:16px;font-weight:bolder;cursor:pointer; }				
+#welcom { right:25px; }
+#alert { right:40px; }
+#dummy { display:none; }	
+#manual { top:5px; opacity:0; }	
+.context_dialogs { font-size:14px; }
+
+.mailto_header { text-decoration:none; }
+a.mailto_header:link    { color:beige; }
+a.mailto_header:visited { color:beige; }
+a.mailto_header:hover   { color:aquamarine; }
+a.mailto_header:active  { color:red; }
+
+.mailto_green { text-decoration:none;font-family:verdana,arial,sans-serif; }
+a.mailto_green:link    { color:beige; }
+a.mailto_green:visited { color:beige; }
+a.mailto_green:hover   { color:aquamarine; }
+a.mailto_green:active  { color:red; }
+
+.mailto_yes {font-size:0.8em;float:left;padding-top:0.8em;padding-left:0.5em;text-decoration:none;}
+a.mailto_yes:link    { color:beige;}
+a.mailto_yes:visited { color:beige;}
+a.mailto_yes:hover   { color:lime;}
+a.mailto_yes:active  { color:red;}
+
+.lorem { color:black;font-size:0.9em;font-weight:normal;font-family:verdana,arial,sans-serif;line-height:1.3em;padding-left:0.7em;  }
+.lorem_header { color:black;font-size:0.9em;font-weight:bold;font-family:verdana,arial,sans-serif;line-height:1.6em;}
+
+    .banner_lorem { color:maroon;font-size:16px;font-weight:normal;font-family:verdana,arial,sans-serif;padding:5px;margin:0px; }
+    .banner_lorem_header { color:firebrick;font-size:20px;font-weight:bold;font-family:verdana,arial,sans-serif;
+                    padding:5px;margin:0px;}
+    #banner_wrap { position:fixed;z-index:9999;left:0px;top:0px;height:100%;width:100%;overflow-x:hidden;
+            background-image:url(http://vt.obninsk.ru/common/background_wrap.png);background-attachment:fixed;background-repeat:repeat;}
+    #banner_text { padding:15px;width:520px;margin:25px;border-radius:0.5em;background-color:white;border:1px solid black; box-shadow:4px 5px 2px grey; padding-bottom:5px;}
+    a.banner_button { background-color:#d6e8e2;padding:5px;color:maroon;line-height:40px;font-weight:normal;font-family:verdana,arial,sans-serif;font-size:14px; border:thin solid maroon; border-radius:0.5em; box-shadow:4px 5px 2px grey;}
+    .banner_button { font-weight:bold; text-decoration:none; }
+    a.banner_button:link    { color:maroon; }
+    a.banner_button:visited { color:maroon; }
+    a.banner_button:hover   { color:firebrick; }
+    a.banner_button:active  { color:red; }
+
+#dummy { position:relative; padding:0px; margin:0px; width:0px; height:0px; border:0px;}
+
+.claro .dijitMenuPassive .dijitMenuItemHover, .claro .dijitMenuPassive .dijitMenuItemSelected { background-color: #b5dddd; }
+.claro .dijitMenuActive .dijitMenuItemHover, .claro .dijitMenuActive .dijitMenuItemSelected { background-color: #b5dddd; }
+.claro .dijitButton .dijitButtonNode,
+.claro .dijitDropDownButton .dijitButtonNode,
+.claro .dijitComboButton .dijitButtonNode,
+.claro .dijitToggleButton .dijitButtonNode { background-image: url("http://vt.obninsk.ru/common/button.png"); }
+
+.search_empty { margin:15px 5px; padding:5px 15px 5px; border: 1px solid gold; background-color: cornsilk; border-radius:4px; box-shadow:3px 3px 3px gray;display:inline-block; }
+.search_forbidden { margin:15px 5px; padding:5px 15px 5px; border: 1px solid red; background-color: mistyrose; border-radius:4px; box-shadow:3px 3px 3px gray;display:inline-block; }
+.claro .demoLayout .edgePanel { background:transparent; border:0;margin:0px;padding:0px;overflow:hidden; }
+
+.claro .dijitButton .dijitButtonNode,
+.claro .dijitDropDownButton .dijitButtonNode,
+.claro .dijitComboButton .dijitButtonNode,
+.claro .dijitToggleButton .dijitButtonNode { 
+  border: 1px solid silver;
+  padding: 2px 5px 4px 4px;
+  background-position: center top;
+  background-repeat: repeat-x;
+  color: #000000;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow:3px 3px 2px grey;
+}
+
+.claro .dijitButtonActive .dijitButtonNode,
+.claro .dijitDropDownButtonActive .dijitButtonNode,
+.claro .dijitComboButtonActive .dijitButtonNode,
+.claro .dijitToggleButtonActive .dijitButtonNode,
+.claro .dijitStackController .dijitToggleButtonChecked .dijitButtonNode {
+  background-color: #f8fae8;
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  box-shadow:3px 3px 2px grey;
+}
+
+.dijitReset .dijitMenuItem { font-size:13px; font-weight:bolder; }
+
+.claro .dijitTreeRowSelected {
+  background-color: #c4e6e1;
+  border: solid 1px #c6d9d6;
+  border-radius: 4px;
+}
+.claro .dijitTreeRowHover {
+  background-color: #efe5d9;
+  border: solid 1px #c6d9d6;
+  border-radius: 4px;
+}
+
+.dijitTreeLabel { cursor:pointer; }
+.claro .dijitContentPane { margin:0px;padding:0px;overflow:hidden; }
+
+* { outline:0;text-decoration:none; }
+
+/* Обертки для панелей adm_panel_divs и tree_editor_divs */
+.wrap_all { left:0px;top:0px;right:0px;bottom:0px;overflow:hidden; }
+.wrap_dialog { position:absolute;left:0px;right:0px;height:0px; }
+.skrepka_float { position:absolute;top:-10px;right:-3px;width:75px;height:43px;cursor:pointer;z-index:5;visibility:visible; 
+                background-image:url("http://vt.obninsk.ru/common/skrepka.png");background-position: 0px 0px; }
+.skrepka_fixed { position:absolute;top:-10px;right:4px;width:24px;height:43px;cursor:pointer;z-index:-5;visibility:hidden; 
+                background-image:url("http://vt.obninsk.ru/common/skrepka.png");background-position: -76px 0px; }			 
+/* Стили для кнопок на пенели adm_panel_divs */
+.adm_btn { height:32px;border:0;overflow:hidden;margin:1px;padding-right:15px;padding-left:40px;padding-bottom:3px;text-align:left;font-size:12px;font-weight:bold;
+                    vertical-align:middle;color:beige;font-family:verdana,arial,sans-serif;cursor:pointer;background-repeat:no-repeat;background-position:left top;background-color:transparent; }
+.adm_new_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px 0px; }
+.adm_new_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -35px; }
+.adm_update_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -70px; }
+.adm_update_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -105px; }
+.adm_delete_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -140px; }
+.adm_delete_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -175px; }
+.adm_save_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -210px; }
+.adm_save_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -245px; }
+.adm_session_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -420px; }
+.adm_session_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -455px; }
+
+/* Стили для форм и кнопок на пенели tree_editor_divs */
+.mess { top:40px;right:-600px;opacity:0;position:absolute;max-width:310px;min-width:220px;background-color:#2b606b;border:thin solid beige;border-radius:0.5em;
+                padding:20px;padding-left:80px;box-shadow:4px 5px 2px grey;z-index:13;color:beige;font-size:16px;font-weight:bolder;
+                background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: -140px -280px;background-repeat:no-repeat; }
+.message {}
+._strong { padding-right:20px;float:right; }
+.point { padding-left:15px;padding-right:15px;cursor:pointer;background-color:#f8f8ee; }
+.dialog { top:25px;right:-600px;opacity:0;position:absolute;padding:25px;padding-bottom:10px;z-index:12;color:beige;font-size:16px;font-weight:bolder;
+            background-color:#2b606b;border:thin solid beige; border-radius:0.5em;box-shadow:4px 3px 2px grey; }
+.dialog_div { top:25px;right:-600px;opacity:0;position:absolute;z-index:12;color:beige;padding:15px;padding-bottom:10px;font-size:12px; 
+                background-color:#2b606b;border:thin solid beige; border-radius:0.5em;box-shadow:4px 3px 2px grey; }
+.dialog_form { min-width:400px;padding-left:10px;padding-right:10px;background-color:#fafaf6;border-radius:2px;border:1px solid #d5f4e3; }
+
+._mess_btn { height:32px;border:0;overflow:hidden;padding-right:15px;padding-left:40px;padding-bottom:3px;text-align:left;font-size:12px;font-weight:bold;
+                    vertical-align:middle;color:beige;font-family:verdana,arial,sans-serif;cursor:pointer;
+                    background-repeat:no-repeat;background-position:left top;background-color:transparent; }
+.dialog_btn_form { height:32px;border:0;overflow:hidden;margin-top:8px;margin-left:5px;padding-right:15px;padding-left:40px;padding-bottom:3px;text-align:left;font-size:12px;font-weight:bold;
+                    vertical-align:middle;color:beige;font-family:verdana,arial,sans-serif;cursor:pointer;background-repeat:no-repeat;background-position:left top;background-color:transparent; }
+
+.new_tree_div {}
+.new_tree_form {}
+.update_tree_div {}
+.update_tree_form {}
+.delete_tree_div {}
+.delete_tree_form {}
+.save_tree_div {}
+.close_session_div {}
+.p_refresh { margin-bottom:15px; }
+.p_save { margin-bottom:15px; }
+.reload_btn {}
+.new_row_name {}
+.update_row_name {}
+.new_row_name {}
+.delete_row_name {}
+
+.save_tree_yes_btn { width:100px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -490px; }
+.save_tree_yes_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: -100px -490px; }
+.save_tree_no_btn { width:100px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -525px; }
+.save_tree_no_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: -100px -525px; }
+
+.close_session_yes_btn { width:100px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -490px; }
+.close_session_yes_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: -100px -490px; }
+.close_session_no_btn { width:100px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -525px; }
+.close_session_no_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: -100px -525px; }
+
+.new_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px 0px; }
+.new_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -35px; }
+.new_refresh_btn { width:118px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -280px; }
+.new_refresh_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -315px; }
+.new_close_btn { width:112px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -350px; }
+.new_close_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -385px; }
+                   
+.update_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -70px; }
+.update_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -105px; }
+.update_refresh_btn { width:118px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -280px; }
+.update_refresh_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -315px; }
+.update_close_btn { width:112px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -350px; }
+.update_close_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -385px; }
+
+.delete_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -140px; }
+.delete_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -175px; }
+.delete_close_btn { width:112px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -350px; }
+.delete_close_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -385px; }
+
+.transform_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -140px; }
+.transform_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -175px; }
+.transform_close_btn { width:112px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -350px; }
+.transform_close_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -385px; }
+
+/* Стили для панелей приветствия */
+.invite_wrap { }
+.invite { position:relative;opacity:0;font-size:14px;color:darkslategray;padding:0px;width:600px;border:thin solid silver;border-radius:0.5em;line-height:20px;height:0px; 
+         background: #cccccc url(http://vt.obninsk.ru/common/bg_ksst_top_inverse.png); background-repeat:repeat-x; box-shadow:4px 5px 2px grey;top:15px;overflow:hidden; }
+.read_manual_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px 0px; }
+.read_manual_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -35px; }
+.work_with_tree_btn { width:200px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -70px; }
+.work_with_tree_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/dojo_tree_buttons.png");background-position: 0px -105px; }
+
+/* Начало стилей для jScrollPane */
+.jspContainer { overflow:visible; -moz-backface-visibility: visible; }
+
+.jspVerticalBar {
+	position: fixed;
+	z-index: 99999;
+	top: 0px;
+	right: 0px;
+	width: 18px;
+	height: 100%;
+	-moz-backface-visibility: visible;
+}
+.jspHorizontalBar { display:none; }
+
+.jspVerticalBar *,
+.jspHorizontalBar *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.jspCap { display:none; }
+
+.jspTrack {
+	background: whitesmoke url("http://vt.obninsk.ru/common/scrolltrak.gif") repeat-y;
+	height: 100%;
+}
+
+.jspDrag {
+	background: whitesmoke url(http://vt.obninsk.ru/common/scrolldrag.gif) repeat-y;
+	position: relative;
+	top:0;left:0;
+	cursor: pointer;z-index:9999;
+}
+
+.jspArrow {
+	background: #50506d;
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+}
+.jspDragTop { z-index:99999;background: whitesmoke url(http://vt.obninsk.ru/common/scrolldragtop.gif) no-repeat; }
+.jspDragBottom { z-index:99999;background: whitesmoke url(http://vt.obninsk.ru/common/scrolldragbot.gif) no-repeat; }
+.jspArrowUp { cursor: pointer;z-index:99999;background: whitesmoke url(http://vt.obninsk.ru/common/arrow_up.gif) no-repeat; }
+.jspArrowDown { cursor: pointer;z-index:99999;background: whitesmoke url(http://vt.obninsk.ru/common/arrow_down.gif) no-repeat; }
+
+.jspArrow.jspDisabled {}
+
+.jspVerticalBar .jspArrow { height:18px; }
+
+.jspCorner {
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner { margin: 0 -3px 0 0; }
+/* Конец стилей для jScrollPane */
+
+/* Стили для футера */
+#_footer_wrap { position:absolute;width:1000px;height:45px;overflow:visible;font-size:16px;bottom:3px;margin-left:-500px;left:50%;
+			box-shadow:4px 3px 2px gray;border-bottom-right-radius:0.5em; border-bottom-left-radius:0.5em;}
+/* #_footer_wrap { position:absolute;left:0px;bottom:0px;right:0px;height:45px;overflow:visible;font-size:16px; } */
+#_footer_ { position:absolute;top:5px;left:0px;right:0px;height:40px;overflow:visible;border-bottom-right-radius:0.5em; border-bottom-left-radius:0.5em;
+                background-image:url("http://vt.obninsk.ru/common/footer_green_background.png");background-repeat:repeat-x;}
+#_footer_navigation { position:absolute;width:310px;top:-250px;overflow:hidden;z-index:-1;font-size:0.8em;
+                padding:15px;background-image:url(http://vt.obninsk.ru/common/background_form_tile.png);background-repeat:repeat;opacity:0;
+                border-radius:1em;border:2px solid lightslategray; }
+#_footer_callback { position:absolute;width:520px;right:35px;bottom:40px;overflow:visible;visibility:hidden;z-index:-1;opacity:0;
+                background-image:url(http://vt.obninsk.ru/common/background_form_tile.png);background-repeat:repeat; border-radius:0.7em;border:2px solid lightslategray;}
+#_footer_popup_navigation_ {position:absolute;width:350px;height:40px;top:-2px;}	
+#_footer_popup_navigation {position:absolute;left:0px;right:0px;height:40px;top:-2px;overflow:visible;border:0;cursor:pointer;opacity:0;}
+#_footer_right_wrap {position:absolute;right:0px;bottom:0px;width:530px;height:40px;overflow:visible;}
+#_footer_no_flash {font-weight:bold;font-style:normal;font-family:verdana,arial,sans-serif;font-size:14px;color:#ffffe8;padding-top:13px;}
+#_footer_callback_globe { position:absolute;right:0px;bottom:-8px;right:0px;width:90px;height:67px;z-index:9999;cursor:pointer; }	
+#_metrica {position:absolute;right:100px;padding-top:5px;}
+#_social {position:absolute;right:180px;padding-top:8px;}
+#_footer_form_to_post { font-family:verdana,arial,sans-serif;font-size:0.8em;width:500px;padding:15px;padding-top:5px;margin:0 auto; }
+#_footer_anything { top:0px;height:20px;padding:5px;padding-left:10em;font-size:1.1em;font-weight:bold;color:#615b5b; }
+#_footer_topic { padding-left:10px;cursor:pointer; }
+._footer_option { padding-left:10px;cursor:pointer; }
+._footer_input_form { width:300px;padding-left:10px;padding-right:10px; }
+
+#_footer_form_posted { position:absolute;top:5.5em;right:3em;opacity:0;width:19em;background-color:#2b606b;border:thin solid beige;border-radius:0.5em;visibility:hidden; 
+                padding:15px;box-shadow:4px 5px 2px grey;color:beige;font-size:1em;font-weight:bolder;text-align:center;z-index:13; }
+._footer_btn { width:310px;height:33px;border:0;overflow:hidden;padding-left:40px;text-align:left;font-weight:bold;font-size:13px;font-family:verdana,arial,sans-serif;color:#ffffe8;  
+                background-image:url("http://vt.obninsk.ru/common/ksst_button_navigate.png");background-repeat:no-repeat;  
+                background-position:left top;background-color:transparent;padding-bottom:5px;cursor:pointer; }
+._footer_btn:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/ksst_button_navigate.png");background-position: 0px -33px;cursor:pointer; }
+._footer_input_form { background-color:#f8f8ee;border:2px solid lightslategray;border-radius:5px;  }
+._footer_btn_form { height:32px;border:0;overflow:hidden;margin-top:8px;margin-left:5px;padding-right:15px;padding-left:40px;padding-bottom:3px;text-align:left;font-size:12px;font-weight:bold;
+                    vertical-align:middle;color:beige;font-family:verdana,arial,sans-serif;cursor:pointer;
+                    background-repeat:no-repeat;background-position:left top;background-color:transparent;overflow:visible; }
+#_footer_form_submit { height:32px;width:207px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/ksst_button_form.png");background-position: 0px 0px; }
+#_footer_form_submit:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/ksst_button_form.png");background-position: 0px -35px; }
+#_footer_form_refresh { height:32px;width:118px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/ksst_button_form.png");background-position: 0px -70px;}
+#_footer_form_refresh:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/ksst_button_form.png");background-position: 0px -105px; }
+#_footer_form_close { height:32px;width:112px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/ksst_button_form.png");background-position: 0px -140px;}
+#_footer_form_close:hover { color:#ffffb9;background-image:url("http://vt.obninsk.ru/common/ksst_button_form.png");background-position: 0px -175px; }
+.activetab { height:30px;  }
+/* Конец стилей для футера */
+
+/* Стили для кнопки "Наверх" */
+#back-top { position:fixed;bottom:10px;left:50%;margin-left:515px; }
+#back-top a { width:108px; display:block; text-align:center; opacity:0; text-transform:uppercase; text-decoration:none; color:#bbb; 
+-webkit-transition:1s; -moz-transition:1s; transition:1s; font-size:12px; }
+#back-top a:hover { color: #000; }
+#back-top span { width: 108px; height: 108px; display: block; margin-bottom: 7px; background: #ddd url(http://vt.obninsk.ru/common/up_arrow.png) no-repeat center center;
+border-radius:15px; -webkit-border-radius:15px; -moz-border-radius:15px; transition:1s; -webkit-transition:1s; -moz-transition:1s; }
+#back-top a span:hover { background-color: #777; }
+/* Конец стилей для кнопки "Наверх" */
+
+/* Начало стилей для Dbpedia */
+
+.load { margin:20px 0px 0px 50px;overflow:visible;
+	-webkit-animation: 3s tremor ease-in-out infinite;
+	-moz-animation: 3s tremor ease-in-out infinite; 
+	-ms-animation: 3s tremor ease-in-out infinite; 
+	-o-animation: 3s tremor ease-in-out infinite; 
+    animation: 3s tremor ease-in-out infinite; 
+}	
+@-webkit-keyframes tremor {
+	0%   {-webkit-transform:scale(1, 1); transform:scale(1, 1);}
+	50%   {-webkit-transform:scale(1.3, 1.3);transform:scale(1.3, 1.3);}
+	100% {-webkit-transform:scale(1, 1);transform: scale(1, 1);}
+}
+@-moz-keyframes tremor {
+	0%   {-moz-transform:scale(1, 1); transform:scale(1, 1);}
+	50%   {-moz-transform:scale(1.3, 1.3);transform:scale(1.3, 1.3);}
+	100% {-moz-transform:scale(1, 1);transform: scale(1, 1);}
+}
+@-ms-keyframes tremor {
+	0%   {-ms-transform:scale(1, 1); transform:scale(1, 1);}
+	50%   {-ms-transform:scale(1.3, 1.3);transform:scale(1.3, 1.3);}
+	100% {-ms-transform:scale(1, 1);transform: scale(1, 1);}
+}
+@-o-keyframes tremor {
+	0%   {-o-transform:scale(1, 1); transform:scale(1, 1);}
+	50%   {-o-transform:scale(1.3, 1.3);transform:scale(1.3, 1.3);}
+	100% {-o-transform:scale(1, 1);transform: scale(1, 1);}
+}
+@keyframes tremor {
+	0%   {transform:scale(1, 1); transform:scale(1, 1);}
+	50%   {transform:scale(1.3, 1.3);transform:scale(1.3, 1.3);}
+	100% {transform:scale(1, 1);transform: scale(1, 1);}
+}
+
+.load :hover{ margin:10px 0px 0px 40px; transform:none;
+-webkit-animation: 0s; 
+    animation: 0s; 
+ } 
+#query_selector { width:550px;padding-left:10px;padding-right:10px; }
+#label_2 { width:540px;padding-left:10px;padding-right:10px;float:right; }
+#dbpedia label { line-heght:1.6em; color:darkred; }
+#dbpedia la, button, label { font-weight:bold; color:darkred; }
+#dbpedia la, button, button:hover, input:hover { color:darkred; cursor: pointer; text-decoration: none; }
+#dbpedia la:hover { color:darkred; }
+#annotation_selector { width:550px;padding-left:10px;padding-right:10px; }
+#annotation_label { width:540px;padding-left:10px;padding-right:10px;float:right; }
+#annotation label { line-heght:1.6em; color:darkred; }
+#annotation la, button, label { font-weight:bold; color:darkred; }
+#annotation la, button, button:hover, input:hover { color:darkred; cursor: pointer; text-decoration: none; }
+#annotation la:hover { color:darkred; }
+.wrap_admin { left:5px;right:-5px;padding:8px 10px;background-color:transparent;border-radius:0.5em;box-shadow:4px 5px 2px grey;border:1px solid silver;margin:0px 4px 14px 0px;
+             background-image:url(http://vt.obninsk.ru/common/wrap_admin.png);background-repeat:repeat-x; min-height:200px;max-height:290px;overflow:visible; }
+.wrap_result { left:5px;font-weight: normal;width:100%; font-size:9pt; }	
+.wrap_result a {font-weight:normal;} 
+.start {height:32px;margin-top:12px;margin-left:40px;padding-right:15px;padding-left:40px;padding-bottom:5px;text-align:left;font-size:12px;font-weight:bold;
+        vertical-align:middle;cursor:pointer;overflow:visible;font-family:verdana,arial,sans-serif;border:0;background-color:transparent;
+		height:32px;width:207px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/ksst_button_form.png");background-position: 0px 0px;}
+.start:hover{color:#ffffb9;}	
+.wikidata:hover { background-image:url("http://vt.obninsk.ru/common/ksst_button_form.png");background-position: 0px -35px; }
+.stop {height:32px;margin-top:12px;margin-left:40px;padding-right:15px;padding-left:40px;padding-bottom:3px;text-align:left;font-size:12px;font-weight:bold;
+        vertical-align:middle;cursor:pointer;overflow:visible;font-family:verdana,arial,sans-serif;border:0;background-color:transparent;
+		height:32px;width:207px;color:#ffffe8;background-image:url("http://vt.obninsk.ru/common/ksst_button_form.png");background-position: 0px -35px;}
+.stop:hover{color:#ffffb9;}			
+button {
+  font-weight: bold;
+  color: black;
+  background-color: #f6f6f6;
+  border-radius: 3px;
+  margin: 0;
+  padding: 4px 8px;
+  border: 1px solid #999999;
+  cursor: pointer;
+}
+#dbpedia linput { padding: 1px 5px; font-size: .9em; }
+#annotation linput { padding: 1px 5px; font-size: .9em; }
+#results { overflow-x:auto; }
+
+textarea {
+  width: 100%;color: darkslategray;
+  min-height: 11em;margin-top:0.3em;
+  border: none;
+  cursor: text;
+  font-size: .9em;
+  background-color: transparent;
+}
+textarea:hover {  color:black; }
+/* UI states */
+.ui-combobox { float:right; min-width:500px; }
+.ui-helper-hidden-accessible { display: none; }
+.ui-state-default, .ui-widget-content { border: 1px solid #999999; background: #f6f6f6; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover,
+.ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+  color: #be1622;
+	border: 1px solid;
+}
+/* Corner radius */
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl { border-top-left-radius: 4px; }
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr { border-top-right-radius: 4px; }
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl { 	border-bottom-left-radius: 4px; }
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br { border-bottom-right-radius: 4px; }
+/* autocomplete */
+.ui-autocomplete {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: default;
+}
+/* button */
+.ui-button {
+  color: black;
+	display: inline-block;
+	position: relative;
+	line-height: normal;
+	cursor: pointer;
+	text-align: center;
+	overflow: visible; /* removes extra width in IE */
+}
+.ui-button, .ui-button:link, .ui-button:visited, .ui-button:hover, .ui-button:active { text-decoration:none; }
+.ui-button:active { padding: 1px 0 0 0px; }
+/* menu */
+.ui-menu {
+	list-style: none;
+	margin: 0;
+	display: block;
+	outline: none;
+  max-height: 400px;
+  overflow-x: visible;
+}
+.ui-menu-item {
+	position: relative;
+  margin: 0;
+	padding: 3px 0 3px 0;
+	cursor: pointer;
+	min-height: 0; /* support: IE7 */
+	/* support: IE10, see #8844 */
+	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.ui-menu .ui-state-focus, .ui-menu .ui-state-active { margin: -1px; }
+/* combobox */
+.ui-combobox { position: display:inline-block;float:right; }
+.ui-combobox input { width: 100%; }
+.ui-combobox .ui-button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+}
+.ui-autocomplete .ui-menu-item { width: 100%; }
+.ui-autocomplete .value { font-weight: bold; }
+.ui-autocomplete .label { font-size: .9em; }
+.ui-autocomplete .value, .ui-autocomplete .label {
+  padding: 0 7px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ui-autocomplete-input { margin:0; }
+/* Конец стилей для Dbpedia */
+
+/* Начало стилей для Wikidata */
+div.wdq_editor_block {vertical-align:top;	display:inline-block;}
+div.wdq_editor_main_block_wrapper {
+	overflow:auto;font-size:9pt;
+	color: darkslategray;
+  height:15em;
+  margin:5px 0px;
+  font-size: .9em;
+  background-color: transparent;
+}
+div.wdq_editor_main_block_wrapper:hover { color:black; }
+}
+div.wdq_editor_main_block {width:auto;white-space:nowrap;	margin:5px;}
+div.wdq_editor_command {margin-left:3px;margin-right:3px;}
+div.wdq_editor_command_header {font-style:italic;	background-color:#EAF1FB;}
+select.wdq_editor_command_header {
+	background-color:#EAF1FB;
+	border:none;
+}
+div.wdq_editor_command_section {
+	margin-top:5px;
+	border-top:3px solid #DDD;
+	padding-top:1px;
+}
+div.wdq_editor_qualifier {
+	margin-top:5px;
+	border-top:3px solid #DDD;
+	padding-top:1px;
+}
+div.wdq_editor_qualifier_header {	background-color:#EAFFEF;}
+div.wdq_editor_qualifier_body {margin-top:5px;}
+div.wdq_editor_command_section_header {background-color:#EEE;}
+div.wdq_editor_command_section_part {
+	margin-bottom:5px;
+	border-top:1px solid #EEE;
+	padding-top:1px;
+}
+div.wdq_editor_round_brackets {
+	border-left:5px solid #EEE;
+	border-right:5px solid #EEE;
+	margin:5px;
+	display:inline-block;
+	border-top:5px solid #EEE;
+	padding-top:2px;
+	margin-bottom:0px;
+}
+input.wdq_editor_query { width:85%;text-align:left;overflow:hidden;
+		background:url("http://vt.obninsk.ru/common/search.png") no-repeat 4px 2px;font-size:13px;background-color:#fcfcf8;
+		padding-left:28px;min-width:320px;height:25px;margin:-3px 0px 5px 0px;font-weight:bold;font-family:verdana,arial,sans-serif; 
+		border:1px solid silver; border-radius:4px; box-shadow:3px 3px 3px gray; }
+}
+input.wdq_editor_query:hover { background-color:white; }	
+
+div.wdq_editor_span {
+	display:inline-block;
+	cursor:pointer;
+	white-space:nowrap;
+	min-width:120px;
+	min-height:10px;
+}
+div.wdq_editor_span_prop {background-color:#F9F9DD;}
+div.wdq_editor_span_item {background-color:#FFEBD9;}
+div.wdq_editor_span_float,div.wdq_editor_span_date {background-color:#F3E7E7;}
+
+#wdq_editor_dropdown {
+	background-color:white;
+	border:2px solid #DDD;
+	padding:2px;
+	width:300px;
+	height:300px;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	font-size:11pt;
+	font-family:Arial,Courier;
+	overflow:auto;
+}
+
+#wdq_editor_dropdown_close {	cursor:pointer;float:right;padding:3px;}
+
+div.wdq_editor_dropdown_title {
+	font-size:14pt;
+	font-family:Times New Roman;
+	padding-bottom:3px;
+	margin-bottom:2px;
+	border-bottom:1px solid #EEE;
+}
+
+#wdq_editor_dropdown_select {margin-top:5px;	width:100%;}
+#wdq_editor_dropdown_searching {	display:none;}
+#wdq_editor_dropdown_autodesc {font-size:9pt;}
+#wdq_editor_command_float {cursor:pointer;float:right;}
+
+.wdq_editor_a_remove {}
+.wdq_editor_a_add {}
+select.wdq_editor_a_command {font-size:8pt;display:none;}
+
+.wdq_hover_root_highlight {}
+
+.wdq_editor_command_section_part_float {
+	cursor:pointer;
+	display:none;
+	float:right;
+}
+.wdq_editor_a_qualifier {cursor:pointer;}
+.wdq_editor_problem {color:red;}
+div.wdq_editor_a_add_qualifier_parts {cursor:pointer;}
+div.wdq { max-heght:300px; }
+/* Конец стилей для Wikidata */
+
+/* Начало стилей для colorbox */
+a:active, a:focus, img { outline: 0; }
+/* SLIMBOX */
+#lbOverlay {
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background:url(images/overlay.png) repeat 0 0;
+	cursor: pointer;
+}
+
+#lbCenter, #lbBottomContainer {
+	position: absolute;
+	z-index: 9999;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+.lbLoading {
+	background: #fff url(images/loading.gif) no-repeat center;
+}
+
+#lbImage {
+	position: absolute;
+	left: 0;
+	top: 0;
+	border: 10px solid #fff;
+	background-repeat: no-repeat;
+}
+
+#lbPrevLink, #lbNextLink {
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 50%;
+	outline: none;
+}
+
+#lbPrevLink {
+	left: 0;
+}
+
+#lbPrevLink:hover {
+	background: transparent url(images/prevlabel.gif) no-repeat 0 15%;
+}
+
+#lbNextLink {
+	right: 0;
+}
+
+#lbNextLink:hover {
+	background: transparent url(images/nextlabel.gif) no-repeat 100% 15%;
+}
+
+#lbBottom {
+	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666;
+	line-height: 1.4em;
+	text-align: left;
+	border: 10px solid #fff;
+	border-top-style: none;
+}
+
+#lbCloseLink {
+	display: block;
+	float: right;
+	width: 66px;
+	height: 22px;
+	background: transparent url(images/closelabel.gif) no-repeat center;
+	margin: 5px 0;
+	outline: none;
+}
+
+#lbCaption, #lbNumber {
+	margin-right: 71px;
+}
+
+#lbCaption {
+	font-weight: bold;
+}
+/*
+    ColorBox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;margin-right:25px;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+#colorbox, #cboxContent, #cboxLoadedContent{box-sizing:content-box;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of ColorBox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay{background:url(images/overlay.png) repeat 0 0;}
+#colorbox{}
+    #cboxTopLeft{width:14px; height:14px; background:url(images/controls.png) no-repeat 0 0;}
+    #cboxTopCenter{height:14px; background:url(images/border.png) repeat-x top left;}
+    #cboxTopRight{width:14px; height:14px; background:url(images/controls.png) no-repeat -36px 0;}
+    #cboxBottomLeft{width:14px; height:43px; background:url(images/controls.png) no-repeat 0 -32px;}
+    #cboxBottomCenter{height:43px; background:url(images/border.png) repeat-x bottom left;}
+    #cboxBottomRight{width:14px; height:43px; background:url(images/controls.png) no-repeat -36px -32px;}
+    #cboxMiddleLeft{width:14px; background:url(images/controls.png) repeat-y -175px 0;}
+    #cboxMiddleRight{width:14px; background:url(images/controls.png) repeat-y -211px 0;}
+    #cboxContent{background:white; overflow:visible; font-family:arial,sans-serif;}
+        .cboxIframe{background:#fff;}
+        #cboxError{padding:50px; border:1px solid #ccc;}
+        #cboxLoadedContent{margin-bottom:5px;}
+        #cboxLoadingOverlay{background:url(images/loading_background.png) no-repeat center center;}
+        #cboxLoadingGraphic{background:url(images/loading.gif) no-repeat center center;}
+        #cboxTitle{position:absolute; bottom:-25px; max-height:25px; padding-left:90px; padding-right:10px; text-align:center; left:20px; right:20px; font-weight:bold;font-size:11px; color:black; overflow:auto; }
+        #cboxCurrent{position:absolute; bottom:-25px; left:58px; font-size:9px; color:#7C7C7C;}
+        
+        #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{position:absolute; bottom:-29px; background:url(images/controls.png) no-repeat 0px 0px; width:23px; height:23px; text-indent:-9999px;}
+        #cboxPrevious{left:0px; background-position: -51px -25px;}
+        #cboxPrevious:hover{background-position:-51px 0px;}
+        #cboxNext{left:27px; background-position:-75px -25px;}
+        #cboxNext:hover{background-position:-75px 0px;}
+        #cboxClose{right:0; background-position:-100px -25px;}
+        #cboxClose:hover{background-position:-100px 0px;}
+        
+        .cboxSlideshow_on #cboxSlideshow{background-position:-125px 0px; right:27px;}
+        .cboxSlideshow_on #cboxSlideshow:hover{background-position:-150px 0px;}
+        .cboxSlideshow_off #cboxSlideshow{background-position:-150px -25px; right:27px;}
+        .cboxSlideshow_off #cboxSlideshow:hover{background-position:-125px 0px;}
+/* Конец стилей для colorbox */	

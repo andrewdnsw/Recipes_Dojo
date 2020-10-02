@@ -1,0 +1,78 @@
+<div id='_lodlive_dialog' class='context_dialogs'>
+<p>&nbsp;&nbsp;<input id='tabs_lodlive' name='lodlive_group' type='radio'/>&nbsp;&nbsp;Отображать графы знаний в новых вкладках браузера&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='popup_lodlive' name='lodlive_group' type='radio'/>&nbsp;&nbsp;Отображать графы знаний во всплывающих окнах&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='frame_lodlive' name='lodlive_group' type='radio'/>&nbsp;&nbsp;Все графы знаний отображать в основном окне&nbsp;&nbsp;</p>
+<center><button id='select_lodlive_done' style='margin-top:12px'>Применить</button>&nbsp;&nbsp;&nbsp;<button style='margin-top:12px'>Закрыть</button></center>
+</div>
+
+<div id='_wdqs_dialog' class='context_dialogs'>
+<p>&nbsp;&nbsp;<input id='tabs_wdqs' name='wdqs_group' type='radio'/>&nbsp;&nbsp;Отображать результаты работы Wikidata в новых вкладках браузера&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='popup_wdqs' name='wdqs_group' type='radio'/>&nbsp;&nbsp;Отображать результаты работы Wikidata во всплывающих окнах&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='frame_wdqs' name='wdqs_group' type='radio'/>&nbsp;&nbsp;Отображать результаты работы Wikidata в основном окне&nbsp;&nbsp;</p>
+<center><button id='select_wdqs_done' style='margin-top:12px'>Применить</button>&nbsp;&nbsp;&nbsp;<button style='margin-top:12px'>Закрыть</button></center>
+</div>
+
+<div id='_search_engines_dialog' class='context_dialogs'>
+<p>&nbsp;<input id="Google_number" value="8" min="0" max="8" step="1" style="width:3em" type="number">&nbsp;&nbsp;Поисковая машина Google Ajax Search, количества страниц на поисковый запрос&nbsp;</p>
+<p>&nbsp;<input id="Yandex_number" value="4" min="0" max="8" step="1" style="width:3em" type="number">&nbsp;&nbsp;Поисковая машина Яндекс, количество страниц на поисковый запрос&nbsp;</p>
+<p>&nbsp;<input id="MailRu_number" value="4" min="0" max="8" step="1" style="width:3em" type="number">&nbsp;&nbsp;Поисковая машина Mail.ru, количество страниц на поисковый запрос&nbsp;</p>
+<p>&nbsp;<input id="Yahoo_number" value="4" min="0" max="8" step="1" style="width:3em" type="number">&nbsp;&nbsp;Поисковая машина Yahoo, количество страниц на поисковый запрос&nbsp;</p>
+<center><button style='margin-top:12px' id='select_search_engines_done'>Применить</button>&nbsp;&nbsp;&nbsp;<button style='margin-top:12px' id='refresh_search_options'>Установить стандартные настройки для всех опций</button>&nbsp;&nbsp;&nbsp;<button style='margin-top:12px'>Закрыть</button></center>
+</div>
+
+<div id='_context_dialog' class='context_dialogs'>
+<p>&nbsp;<input id='meta_cbx' type='checkbox'/>&nbsp;&nbsp;Частицы и атомные ядра. Основные понятия (Физфак МГУ)&nbsp;</p>
+<p style='margin-top:4px'>&nbsp;<input id='progr_cbx' type='checkbox'/>&nbsp;&nbsp;Частицы и атомные ядра. Термины Физической энциклопедии&nbsp;</p>
+<p style='margin-top:4px'>&nbsp;<input id='network_cbx' type='checkbox'/>&nbsp;&nbsp;Названия химических элементов (английские и русские)&nbsp;</p>
+<p style='margin-top:4px'>&nbsp;<input id='micro_cbx' type='checkbox'/>&nbsp;&nbsp;Википедия (англ.) – текст статьи «Nuclear physics»&nbsp;</p>
+<p style='margin-top:4px'>&nbsp;<input id='common_cbx' type='checkbox'/>&nbsp;&nbsp;Википедия (англ.) – текст статьи «Particle physics»&nbsp;</p>
+<p style='margin-top:6px'>&nbsp;<input id='file_cbx' type='checkbox'/>&nbsp;&nbsp;Текстовый файл с компьютера (txt html xml) <2Мб&nbsp;</p>
+<p align='right'>&nbsp;
+<img id='select_context_file_upload' style='float:right;margin-right:9px;display:none;' src='./images/coming_search.gif' alt=''>
+<input id='handle_file_upload' style='margin-top:3px;cursor:pointer;' type='file' name='context_file_upload' accept='text/html,text/xml,text/plain'>&nbsp;&nbsp;
+</p>
+<p style='clear:both;margin-top:6px'>&nbsp;<input id='web_cbx' type='checkbox'/>&nbsp;&nbsp;Произвольный сайт из глобальной сети Интернет&nbsp</p>
+<p align='right'>&nbsp;
+<img id='select_context_site_upload' style='float:right;margin-right:9px;display:none;' src='./images/coming_search.gif' alt=''>
+<input id='handle_site_upload' type='button' value='Выберите сайт' style='margin-top:3px;padding:2px 8px;cursor:pointer;'>
+<input id='handle_site_upload_text' type='text' value='' style='margin-top:3px;padding:2px 8px;min-width:320px;' placeholder='Укажите сетевой адрес сайта ...'  oninput='if(/%[0-9A-F]{2}/.test(this.value)) this.value=decodeURI(this.value);'>&nbsp;
+</p>
+<center><button id='select_context_done' style='margin-top:16px'>Применить</button>&nbsp;&nbsp;&nbsp;<button id='select_context_close' style='margin-top:16px'>Закрыть</button></center>
+</div>
+
+<div id='_sort_dialog' class='context_dialogs'>
+<p>&nbsp;&nbsp;<input id='r_radio' name='sort_group' type='radio'/>&nbsp;&nbsp;Упорядочить результаты поиска по их релевантности&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='p_radio' name='sort_group' type='radio'/>&nbsp;&nbsp;Упорядочить результаты поиска по их пертинентности&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='r_m_radio' name='sort_group' type='radio'/>&nbsp;&nbsp;Упорядочить по релевантности с учетом ключевых слов портала&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='p_m_radio' name='sort_group' type='radio'/>&nbsp;&nbsp;Упорядочить по пертинентности с учетом ключевых слов портала&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='d_radio' name='sort_group' type='radio'/>&nbsp;&nbsp;Упорядочить результаты поиска по показателю доминирования&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='n_radio' name='sort_group' type='radio'/>&nbsp;&nbsp;Не упорядочивать результаты поиска&nbsp;&nbsp;</p>
+<center><button id='select_sort_done' style='margin-top:12px'>Применить</button>&nbsp;&nbsp;&nbsp;<button style='margin-top:12px'>Закрыть</button></center>
+</div>
+
+<div id='_show_dialog' class='context_dialogs'>
+<p>&nbsp;&nbsp;<input id='popup_radio' name='show_group' type='radio'/>&nbsp;&nbsp;Отображать контент во всплывающих окнах&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='tabs_radio' name='show_group' type='radio'/>&nbsp;&nbsp;Отображать контент в новых вкладках браузера&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;<input id='frame_radio' name='show_group' type='radio'/>&nbsp;&nbsp;Весь контент отображать в основном окне&nbsp;&nbsp;</p>
+<center><button id='select_show_done' style='margin-top:12px'>Применить</button>&nbsp;&nbsp;&nbsp;<button style='margin-top:12px'>Закрыть</button></center>
+</div>
+
+<div id='_pareto_dialog' class='context_dialogs'>
+<p>&nbsp;<input id='r_cbx' type='checkbox'/>&nbsp;&nbsp;Мера соответствия сниппета тексту поискового запроса (релевантность)&nbsp;</p>
+<p>&nbsp;<input id='p_cbx' type='checkbox'/>&nbsp;&nbsp;Мера соответствия сниппета контексту поиска (пертинентность)&nbsp;</p>
+<p>&nbsp;<input id='r_m_cbx' type='checkbox'/>&nbsp;&nbsp;Мера соответствия сниппета тексту поискового запроса и ключевым словам портала&nbsp;</p>
+<p>&nbsp;<input id='p_m_cbx' type='checkbox'/>&nbsp;&nbsp;Мера соответствия сниппета контексту поиска и ключевым словам портала&nbsp;</p>
+<p>&nbsp;<input id='m_k_cbx' type='checkbox'/>&nbsp;&nbsp;Мера соответствия сниппета ключевым словам и описанию портала (теги &lt;meta&gt;)&nbsp;</p>
+<p>&nbsp;<input id='m_c_cbx' type='checkbox'/>&nbsp;&nbsp;Мера соответствия сниппета категориям и свойствам портала (теги &lt;meta&gt;)&nbsp;</p>
+<center><button id='select_pareto_done' style='margin-top:12px'>Применить</button>&nbsp;&nbsp;&nbsp;<button style='margin-top:12px'>Закрыть</button></center>
+</div>
+
+<div id='_levenstain_dialog' class='context_dialogs'>
+<p>&nbsp;<input id="equal_number" value="3" min="0" max="999" step="1" style="width:3em" type="number">&nbsp;&nbsp;Премия за точное совпадение лексем&nbsp;</p>
+<p>&nbsp;<input id="replace_number" value="1" min="0" max="999" step="1" style="width:3em" type="number">&nbsp;&nbsp;Цена замены одного символа в метрике Левенштейна&nbsp;</p>
+<p>&nbsp;<input id="insert_number" value="1" min="0" max="999" step="1" style="width:3em" type="number">&nbsp;&nbsp;Цена вставки одного символа в метрике Левенштейна&nbsp;</p>
+<p>&nbsp;<input id="remove_number" value="1" min="0" max="999" step="1" style="width:3em" type="number">&nbsp;&nbsp;Цена удаления одного символа в метрике Левенштейна&nbsp;</p>
+<p>&nbsp;<input id="min_number" value="3" min="1" max="999" step="1" style="width:3em" type="number">&nbsp;&nbsp;Минимально допустимое количество символов в лексемах&nbsp;</p>
+<p>&nbsp;<input id="max_number" value="20" min="1" max="999" step="1" style="width:3em" type="number">&nbsp;&nbsp;Максимально допустимое количество символов в лексемах&nbsp;</p>
+<center><button id='select_levenstain_done' style='margin-top:12px'>Применить</button>&nbsp;&nbsp;&nbsp;<button style='margin-top:12px'>Закрыть</button></center>
+</div>

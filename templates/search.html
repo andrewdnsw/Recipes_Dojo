@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<head>
+<title>Graphs of nuclear knowledge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="Образовательный, портал, кафедра, онлайн, Россия, Обнинск, национальный, ядерный, университет, МИФИ, кафедра, КССТ, ИАТЭ, НИЯУ, компьютер, система, сети, информация, технологии, программирование, вычислительная, техника, кибернетика, семантический, веб, интеллект, obninsk, computer, system, network, information, technology, programming, software, hardware, INPE, NRNU, MEPhI, Obninsk, Russia, University, Nuclear, cybernetics, semantic, web"> 
+<meta name="description" content="Graphs of nuclear knowledge. Intellectual search agents NRNU MEPHI Obninsk. Educational portal online. Institute of Intelligent Cybernetic Systems MEPHI">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-language" content="ru"><meta name="author" content="Victor Telnov"><meta name="copyright" content="Victor Telnov">
+	<!--[if lt IE 9]><meta http-equiv="Refresh" content="0;URL=http://vt.obninsk.ru/common/bad_browser.html"/><![endif]-->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dijit/themes/claro/claro.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../static/search_student/css/nuclear.css" media="screen">
+    <script type="text/javascript">
+        var user_authorized = 'true';
+        var user_name       = 'true';
+        var user_rank_name  = 'true';
+        var user_has_rank   = 'true';
+		var cloud_holder = 'http://vt.obninsk.ru/dojo_tree/json/';
+		var stock_holder = '../static/search_student/stock/';
+		var software_holder = '../static/search_student';
+		var blank_image = 'http://vt.obninsk.ru/common/blank.png';
+    </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/dojo.js" data-dojo-config="async:true, parseOnLoad:true"></script>
+    <script>require(["dijit/layout/BorderContainer","dijit/layout/ContentPane","dijit/layout/StackContainer","dijit/layout/StackController","dojo/parser"]);</script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="application/json" src="../static/search_student/script/nuclear_engine.js"></script>
+    <script type="text/javascript" src="https://yandex.st/share/share.js" charset="utf-8"></script>
+</head>
+<body class="claro" id="body" itemscope itemtype="http://schema.org/CollegeOrUniversity">
+<div id="banner" style="z-index:9999;"></div> 
+
+<table width="100%" >
+<tr>
+<td height="100%"><div id="body_left" class="tit"></div></td>
+<td height="100%" width="1004px"></td>
+<td height="100%"><div id="body_right" class="tit"></div></td>
+</tr>
+</table>
+
+<div id="content">
+<div id="background">
+<center id='preloader_start'><img src='../static/loading.gif' alt =''></center>
+<div id="make_fine"> 
+	<div id="docs" class="demoLayout fine" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design: 'sidebar'">
+		<div id="docsStack" class="centerPanel cloud" data-dojo-type="dijit.layout.StackContainer" data-dojo-props="region:'center',id:'docsStack'">
+			<div id="s_progr" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="selected:true" title="Programming">
+				<div id="progr"></div>
+            </div>
+			<div id="s_network" data-dojo-type="dijit.layout.ContentPane" title="Computer networks">
+				<div id="network"></div>
+			</div>
+			<div id="s_micro" data-dojo-type="dijit.layout.ContentPane" title="Microprocessors">
+				<div id="micro"></div>
+			</div>
+			<div id="s_common" data-dojo-type="dijit.layout.ContentPane" title="General disciplines">
+				<div id="common"></div>
+			</div>
+		</div>
+		<div id="docs_some_" class="edgePanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'">
+			<div data-dojo-type="dijit.layout.StackController" data-dojo-props="containerId:'docsStack',selectChild:'s_progr'"></div>
+		</div>
+	</div>
+	
+	<div id="libs" class="demoLayout fine" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design: 'sidebar'">
+		<div id="libStack" class="centerPanel cloud" data-dojo-type="dijit.layout.StackContainer" data-dojo-props="region:'center',id:'libStack'">
+			<div id="s_lib" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="selected:true" title="Open library" style="overflow-x:hidden;">
+				<div id="lib"></div>
+			</div>
+			<div id="s_project" data-dojo-type="dijit.layout.ContentPane" title="Projects of students" style="overflow-x:hidden;">
+				<div id="project"></div>
+			</div>
+		</div>
+		<div id="lib_some_" class="edgePanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'">
+			<div data-dojo-type="dijit.layout.StackController" data-dojo-props="containerId:'libStack',selectChild:'s_lib'"></div>
+		</div>
+	</div>
+
+	<div id="global" class="demoLayout fine" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design: 'sidebar'">
+		<div id="searchStack" class="centerPanel" style="border:0;" data-dojo-type="dijit.layout.StackContainer" data-dojo-props="region:'center',id:'searchStack'">
+			<div id="s_web" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="selected:true" title="WWW">
+				<div id="web"></div>
+			</div>
+			<div id="s_images" data-dojo-type="dijit.layout.ContentPane" title="Images">
+				<div id="images"></div>
+			</div>
+			<div id="s_video" data-dojo-type="dijit.layout.ContentPane" title="Video">
+				<div id="video" ></div>
+			</div>
+			<div id="s_blogs" data-dojo-type="dijit.layout.ContentPane" title="Blogging">
+				<div id="blogs"></div>
+			</div>
+			<div id="s_news" data-dojo-type="dijit.layout.ContentPane" title="News">
+				<div id="news"></div>
+			</div>
+			<div id="s_books" data-dojo-type="dijit.layout.ContentPane" title="Books">
+				<div id="books"></div>
+			</div>
+			<div id="s_patent" data-dojo-type="dijit.layout.ContentPane" title="Patents">
+				<div id="patent"></div>
+			</div>
+			<div id="s_local" data-dojo-type="dijit.layout.ContentPane" title="Addresses">
+				<div id="local"></div>
+			</div>
+		</div>
+		<div id="search_some_" class="edgePanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'">
+			<div data-dojo-type="dijit.layout.StackController" data-dojo-props="containerId:'searchStack',selectChild:'s_web'"></div>
+		</div>
+	</div>
+	
+	<div id="semantic" class="demoLayout fine" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design: 'sidebar'">
+		<div id="semanticStack" class="centerPanel" style="border:0;" data-dojo-type="dijit.layout.StackContainer" data-dojo-props="region:'center',id:'semanticStack'">
+			<div id="s_lodlive" data-dojo-type="dijit.layout.ContentPane" title="<-- Reserved Tab -->">
+				<div id="lodlive"></div>
+			</div>
+			<div id="s_grab" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="selected:true" title="Context-sensitive search">
+				<div id="grab">
+					<div class='the_line'>
+						<div id='the_search_engines' align='left' class="search_option_top" style="margin-left:95px;">Search engines</div>
+						<div id='the_context' align='center' class="search_option_top">Search context</div>
+						<div id='the_sort' align='right' class="search_option_top">Sort the results</div>
+						<div id='the_clone'>
+							<input type="text" name="request_clone" id="request_clone" value ="" class="special_field_clone" style="margin-right:-2px;" placeholder="Keywords of the search query ...">
+							<div id="search_menu_button_clone" class="control_top" style="margin-left:3px;"></div>
+						</div>
+						<div id='the_show' align='left' class="search_option_bottom" style="margin-left:95px;">Content display</div>
+						<div id='the_pareto' align='center' class="search_option_bottom" style="width:230px;">Dominance index</div>
+						<div id='the_levenstain' align='right' class="search_option_bottom" style="width:170px;">Tokens and metrics</div>
+					</div>
+				</div>
+			</div>
+			<div id="s_annotation" data-dojo-type="dijit.layout.ContentPane" title="<-- Reserved Tab -->">
+				<div id="annotation"></div>
+			</div>
+			<div id="s_wdqs" data-dojo-type="dijit.layout.ContentPane" title="<-- Reserved Tab -->">
+				<div id="wdqs"></div>
+			</div>
+			<div id="s_dbpedia" data-dojo-type="dijit.layout.ContentPane" title="<-- Reserved Tab -->">
+				<div id="dbpedia"></div>
+            </div>
+		</div>
+		<div align="center" id="semantic_some_" class="edgePanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'">
+			<div data-dojo-type="dijit.layout.StackController" data-dojo-props="containerId:'semanticStack',selectChild:'s_grab'"></div>
+		</div>
+	</div>
+	<div id="frame" class="fine"></div>
+<!--	<div id="manual" class="fine"></div> -->
+</div>
+</div> 
+
+<div id="invisible_div" class="fine invisible"></div>
+<div id="invisible_ff" class="fine invisible"></div>
+<div id="invisible_dbpedia" class="fine invisible"></div>
+<div id="invisible_wikidata" class="fine invisible"></div>
+<div id="close_btn"><img src="http://vt.obninsk.ru/dojo_tree/images/close_search.png" alt=""></div>
+<div id="coming_search" title='Остановить поиск'><img src="http://vt.obninsk.ru/dojo_tree/images/coming_search.gif" alt=""></div>
+<div id="welcom" class="welcome_mess" align="center" title='Delete message'></div>
+<div id="alert" class="alert_mess" align="center" title='Delete message'></div>
+
+<div id="header_wrap">
+	<div id="header" align="center">
+        <a class="mailto_header" target="_self" href="http://vt.obninsk.ru" title="На главную страницу портала">Semantic educational portal. Graphs of nuclear knowledge. Intelligent search agents</a>
+    </div>
+	<div id="control_wrap" align="center">
+		<div id="begin" class="align_left control_top"></div>
+		
+		<div id="choice" class="align_left control_top"></div>
+		<div id="search" class="align_right control_top"></div>
+		<a href="http://vt.obninsk.ru" target="_self"><div id="logo" class="align_right control_top" title="To the main page of the portal"></div></a>
+		<input type="text" name="request" id="request" value ="" class="align_right special_field" style="" placeholder="Search query words ...">
+	</div>
+</div>
+
+</div> 
+ 
+<div id="_footer_wrap" style="bottom:5px;">
+	<div id="_footer_callback" align="center"></div>
+	<div id="_footer_">
+		<div id="_footer_popup_navigation_" align="left" style="cursor:default;">
+			<p itemprop="name" id="_footer_no_flash" style="margin-left:25px;margin-top:3px;font-size:12px;">&copy;2019&nbsp;Victor Telnov - NRNU MEPHI</p>
+		</div>
+		<div id="_footer_popup_navigation" align="left" title="Click the mouse to navigate"></div>
+		<div id="_footer_right_wrap" align="right">
+			<img id="_footer_callback_globe" src="http://vt.obninsk.ru/common/batterflay.gif" alt="" title="Feedback">
+			<div id="_metrica" align="right"> 
+				<a href="http://metrika.yandex.ru/stat/?id=21875866&amp;from=informer" target="_blank" rel="nofollow"><img src="https://bs.yandex.ru/informer/21875866/3_0_66A2D4FF_4682B4FF_1_pageviews" style="width:70px;height:30px;border:0;border-radius:0.5em;overflow:hidden;" alt="Яндекс.Метрика" title="Yandex.Metric: data for today (views, visits and unique visitors)" onclick="try{Ya.Metrika.informer({i:this,id:21875866,lang:'ru'});return false}catch(e){}"/></a><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter21875866 = new Ya.Metrika({id:21875866, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script>
+			</div>	
+			<div id="_social" align="right" class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="facebook,twitter,gplus,lj,vkontakte,odnoklassniki,moimir,friendfeed,moikrug,yaru"></div> 
+		</div>
+	</div>
+</div> 
+<p id="back-top"><a href="#top"><span></span>Back to top</a></p>
+<div id="_footer_navigation"></div>
+<br id="dummy">
+<!-- Данные микроразметки Schema.org -->
+<!-- Конец данных микроразметки Schema.org -->
+</body>
+<noscript>
+	<meta http-equiv="Refresh" content="0;URL=http://vt.obninsk.ru/common/no_javascript.html"/>
+</noscript>
+<?php
+//  Поддерживаем AWS в тонусе
+//include '/var/www/vt.obninsk.ru/www/touch.php';	
+?>

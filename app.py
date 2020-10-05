@@ -8,11 +8,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/test")
-def test():
-    return "Hello World."
-
-
 @app.route("/about")
 def about():
     return render_template("about.html")
@@ -20,7 +15,8 @@ def about():
 
 @app.route('/search')
 def search():
-    return render_template("search.html")
+    # return render_template("search.html")
+    return "Тут будет search.html"
 
 
 if __name__ == '__main__':

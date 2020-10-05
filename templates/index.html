@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Веб-гид по кулинарным рецептам">
     <title>Веб-гид по кулинарным рецептам</title>
-    <link rel="stylesheet" href="../static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="../static/light_div_css/light_div.css" type="text/css" media="screen"/>
-    <link rel="icon" type="image/png" href="../static/favicon.ico" />
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/dojo.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway&display=swap">
+    <link rel="stylesheet" href="static/style.css">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway&display=swap">
+	<link rel="stylesheet" href="static/light_div_css/light_div.css" type="text/css" media="screen"/>
+    <link rel="icon" type="image/png" href="static/favicon.ico" />
+<!--	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/dojo.js"></script>-->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="../static/light_div_blue_max.js" type="text/javascript" charset="utf-8"></script>
+    <script src="static/light_div_blue_max.js" type="text/javascript" charset="utf-8"></script>
+
+
+	<style type="text/css">
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+	</style>
+	<script>dojoConfig = {parseOnLoad: true}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js'></script>
+	<script>
+require(["dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/TabContainer", "dijit/layout/AccordionContainer", "dijit/layout/ContentPane", "dijit/layout/AccordionPane"]);
+	</script>
 </head>
+
 <header>
 	<div class="overlay">
-<h1>Веб-гид по кулинарным рецептам</h1>
-    </div>
+        <h1>Веб-гид по кулинарным рецептам</h1>
+        <div id="flickr_container"></div>
+        <div id="youtube_container"></div>
+            <script type="text/javascript">
+                    $('#youtube_container').light_youtube('155', 'circle', 'center', "ts-NEitEZp4", "AA_po_K10Zo", "5k4ePNW2qBo", "MIuXxozpbAU", "QVfZxN_CNR0", "vUBkcQOv2P8", "_-9nH4zFThs");
+            </script>
+        </div>
 </header>
 
-<body>
-<div id="flickr_container"></div>
-<div id="youtube_container"></div>
-<script type="text/javascript">
-        $('#youtube_container').light_youtube('155', 'circle', 'center', "ts-NEitEZp4", "AA_po_K10Zo", "5k4ePNW2qBo", "MIuXxozpbAU", "QVfZxN_CNR0", "vUBkcQOv2P8", "_-9nH4zFThs");
-</script>
+<body class="claro">
+<!--    <div data-dojo-type="dijit/layout/BorderContainer" style="width: 100%; height: 100%;">-->
+<!--    <div data-dojo-type="dijit/layout/AccordionContainer" data-dojo-props="region:'leading'">-->
+<!--        <div data-dojo-type="dijit/layout/AccordionPane" title="pane #1">accordion pane #1</div>-->
+<!--        <div data-dojo-type="dijit/layout/AccordionPane" title="pane #2">accordion pane #2</div>-->
+<!--        <div data-dojo-type="dijit/layout/AccordionPane" title="pane #3">accordion pane #3</div>-->
+<!--    </div>-->
+    <div data-dojo-type="dijit/layout/TabContainer" data-dojo-props="region:'center'">
+        <div data-dojo-type="dijit/layout/ContentPane" title="Рецепты">
     <table id="recipes"></table>
     <script>
         var recipesTable = document.getElementById('recipes'),
@@ -52,7 +76,7 @@
             headerTr.innerHTML = '<th>Название</th><th>Время (мин.)</th><th>Кухня</th><th style="width:20%">Ингредиенты</th><th>Этапы приготовления</th><th>Фото</th>';
             recipesTable.appendChild(headerTr);
             data.recipes.forEach(function(elem) {
-			ing_s = st_s = "";	
+			ing_s = st_s = "";
 				for (let ing in elem.ingredients)
 					ing_s += elem.ingredients[ing] + "<br/>";
 				for (let st in elem.stages)
@@ -65,6 +89,28 @@
             });
         }
     </script>
-</body>
+</div>
+        <div data-dojo-type="dijit/layout/ContentPane" title="Видео">
+            <div>
+            Bla-bla-bla
+            P.S. Видео по идее смотрится круче выше , но эту страницу можно заполнить рыбьими глазами доверху :D
+                <div>
+                <img src="https://sun9-15.userapi.com/hdlpwrRBwvhVaE9IVcYmMdxLLZdoC6VJnnrP3A/DH4pM7AWVA0.jpg" alt="The glaza of fish.">
+                </div>
+            </div>
+        </div>
+        <div data-dojo-type="dijit/layout/ContentPane" title="Поиск">Тут будет страница поиска</div>
+        <div data-dojo-type="dijit/layout/ContentPane" title="О Нас">
+             <div class="container">
+                <h1>Разработка:</h1>
+                <h2> <a href="https://vk.com/id83167575">Теплякова Анастасия</a></h2>
+                <h2> <a href="https://vk.com/andrewdnsw">Денисов Андрей</a></h2>
+                <h2> <a href="https://vk.com/mironchikserij">Миронов Сергей</a></h2>
+             </div>
 
+        </div>
+    </div>
+<!--    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'trailing'">Trailing pane</div>-->
+<!--    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'">Bottom pane</div>-->
+</body>
 </html>
